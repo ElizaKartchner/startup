@@ -20,5 +20,21 @@ This is the classic github use patten to follow.
 and not create such conflicts 
 - I created a personal access token. To create another one go to settings >> developer settings >> personal access token. Then follow the steps there. 
 
+Elevator pitch for start-up 
+Have you ever struggled to come up with a data idea? Maybe you googled data ideas and found lists out there that are pages and pages long! How do you know if one of those many ideas is even a good one? If you want to know if a restaurant is good there are many websites you can look up and see the reviews people who have eaten there have said. If you want to see if a professor is good, you can go to ratemyProfessor.com and see how many stars they have as well as the good and bad things about their classes. Why not do the same thing for data ideas?! DaringDarlingandDevastatingDatingReviews.com is here to the rescue. Whether you're single and want to impress your new love interest, in a serious relationship and ready to pop the question, or married and want to create a special anniversary or just spice up the normal night date this website is for you. Here people can submit data ideas and others can post reviews. Each dating idea will have a rating out of five stars and want others to have to say about it. This way you can be informed and plan the best dates to romance your significant other. 
+
+Key features:
+Each user must log in and create an account
+A way to post new data ideas 
+A rating system out of 5 stars for each data idea 
+Also a cost for each data idea
+A way for each user to comment/review data ideas 
+A way for users to comment on others reviews
+Possible to tag date ideas (greatFirstDate, SafeMutaulDate, ProposalWorthy, AmazingAnniversy, HerPlanningForHim, HimPlanningForHer, ClassicBYU, STEMMajorDate, ArtAdmirer, FriendZoner, Creepy, etc….) 
+Monitor data idea and comments and delete inappropriate ones 
+Search feature (by keyword or by tag) 
+Top rated (5 stars, etc) page of date ideas 
+Be able to save data ideas you like
+Be about to follow other people and have them follow you. Allow others to see your save date ideas (So you can see what sounds fun to your significant other!) 
 
 
