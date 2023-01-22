@@ -38,5 +38,5 @@ Be able to save data ideas you like
 Be about to follow other people and have them follow you. Allow others to see your save date ideas (So you can see what sounds fun to your significant other!) 
 
 Rough sketches of my application
-![Sketch One](C:\Users\eliza\Documents\CS_260\startup\Website_2nd_drawing.jpg)
-![Sketch Two](C:\Users\eliza\Documents\CS_260\startup\Website_2nd_drawing.jpg)
+![Sketch One](Website_first_sketch.jpg)
+![Sketch Two](Website_2nd_drawing.jpg)
