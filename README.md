@@ -41,6 +41,6 @@ Rough sketches of my application
 ![Sketch One](Website_first_sketch.jpg)
 ![Sketch Two](Website_2nd_drawing.jpg)
 
-#AWS notes 
+# AWS notes 
 My server IP address is http://18.119.93.245/
 In order to romote shell into my server, the command is ssh -i [key pair file] ubuntu@[ip address]
