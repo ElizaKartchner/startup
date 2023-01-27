@@ -47,3 +47,6 @@ In order to romote shell into my server, the command is ssh -i [key pair file] u
 I now have a domain name that is associated with my IP address. It is darlingDateReviews.click. 
 I have a record representing your root domain name and a wild card subdomain so I can access my website with 
 my domain name and any subdomain name such as startup.darlingDateReviews.click
+
+Caddy acts as a gateway to our different services and to host our static web application files. 
+Caddy has ACME support built into it by default. We used Caddy to request a certificate from Let's Encrypt for you domain name.
