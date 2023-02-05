@@ -50,3 +50,9 @@ my domain name and any subdomain name such as startup.darlingDateReviews.click
 
 Caddy acts as a gateway to our different services and to host our static web application files. 
 Caddy has ACME support built into it by default. We used Caddy to request a certificate from Let's Encrypt for you domain name.
+
+# simon notes 
+It is important to test your files before you deploy them to your production environment. 
+As I was creating the simon html files, I noticed that they all had the same footer and the same header. Within the header each file contained the 
+navigation elements allowing the user to go from page to page. 
+
