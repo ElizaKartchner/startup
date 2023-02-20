@@ -67,3 +67,22 @@ How to deply to my production environement.
 ```sh
 ./deployFiles.sh -k <yourpemkey> -h <yourdomain> -s simon
 ```
+
+# HTML Notes 
+HyperText Markup Language (HTML) provides the foundational content structure that all web applications build on. 
+HTML elements are represented with enclosing tags that may enclose other elements or text. Attributes describe the specific details of the element. 
+
+# CSS Notes
+Cascading Style Sheets (CSS) converts the structure and content of HTML into a vibrant, responsive, experience.
+A rule is comprised of a selector that selects the elements to apply the rule to, and one or more declarations that represent the property to style with the given property value.
+How to associate CSS with HTML
+1. use the style attribute of an HTML element and explicitly assign one or more declarations.
+2. use the HTML style element to define CSS rules within the HTML document
+3. use the HTML link element to create a hyperlink reference to an external file containing CSS rules. Make appear in the head element of the document. 
+
+CSS defines everything as boxes.
+![CSS box model](cssBoxModel.jpg)
+
+Different ways to add color to CSS: keyword, RGB hex, RGB function, HSL.
+
+There are four major families of fonts: `Serif`, `san-serif`, `fixed`, and `symbol`. A serif is a small stroke attached to the ends of a character's major strokes. Serif fonts have the extra strokes, san-serif fonts do not.
