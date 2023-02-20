@@ -17,38 +17,42 @@
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
         crossorigin="anonymous" />
     </head>
-    <body>
+    <body class="text-dark">
         <!-- Use header, main, and footer elements to give semantic structure -->
-        <header>
-            <h1>Darling Date Reviews</h1>
-
-                <!-- Navigation elements -->
-                <nav>
-                    <!-- Menu is a semantic alternative to <ul> that represents an interaction -->
-                    <menu>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="topDates.html">Top Date Ideas</a></li>
-                    <li><a href="review.html">Review</a></li>
-                    <li><a href="about.html">About</a></li>
-                    </menu>
-                </nav>
-
-            <!-- Since we don't have the ability to style we use old style HTML to give some visual formatting -->
-            <hr /> 
+        <header class="container-fluid" style="background-color: #F76C6C;" >
+            <!-- Navigation elements -->
+            <nav class="navbar" >
+                <a class="navbar-brand" href="#">Darling Date Reviews</a>
+                <!-- Menu is a semantic alternative to <ul> that represents an interaction -->
+                <menu class="navbar-nav" >
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="topDates.html">Top Date Ideas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="review.html">Leave a Review</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                </menu>
+            </nav>
         </header>
 
-        <main> 
-            <h1>Share your valued opionon with others!</h1>
+        <main class="container-fluid text-center" style="background-color: #A8D0E6;"> 
+            <h1>Share your valued opinion with others!</h1>
             <p>Click on a data idea.</p>
             <p>Type your review.</p>
             <p>Hit submit to post your reivew. </p>
         </main>
 
-        <footer>
-            <hr />
-            <span class="text-reset">Author Name: Eliza Homer</span>
-            <br />
-            <a href="https://github.com/ElizaKartchner/startup">github</a>
+        <footer style="background-color: #24305E;">
+            <div class="container-fluid">
+            <span class="text-reset">Creater and designer: Eliza Homer</span>
+            <a class="text-reset" href="https://github.com/ElizaKartchner/startup">Source</a>
+            </div>
         </footer>
     </body>
 </html>
