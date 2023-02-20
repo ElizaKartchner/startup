@@ -81,7 +81,7 @@ How to associate CSS with HTML
 3. use the HTML link element to create a hyperlink reference to an external file containing CSS rules. Make appear in the head element of the document. 
 
 CSS defines everything as boxes.
-![CSS box model](cssBoxModel.jpg)
+![CSS box model](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.simplilearn.com%2Ftutorials%2Fcss-tutorial%2Fcss-box-model&psig=AOvVaw3AENWOUmJEnV4t_89GoDjw&ust=1677018249930000&source=images&cd=vfe&ved=0CA8QjRxqFwoTCMi4jvmRpf0CFQAAAAAdAAAAABAE)
 
 Different ways to add color to CSS: keyword, RGB hex, RGB function, HSL.
 
