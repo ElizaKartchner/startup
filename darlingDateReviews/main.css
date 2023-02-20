@@ -44,6 +44,18 @@ menu .nav-item {
     width:  100vh;
 }
 
+.review {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5em 2em;
+    margin: 0.5em;
+}
+
+.review a {
+    padding: 0.5em 2em;
+    margin: 0.5em;
+}
+
 footer {
     flex: 0 30px;
     color: white;
