@@ -51,8 +51,19 @@ my domain name and any subdomain name such as startup.darlingDateReviews.click
 Caddy acts as a gateway to our different services and to host our static web application files. 
 Caddy has ACME support built into it by default. We used Caddy to request a certificate from Let's Encrypt for you domain name.
 
-# simon notes 
+# simon notes html
 It is important to test your files before you deploy them to your production environment. 
 As I was creating the simon html files, I noticed that they all had the same footer and the same header. Within the header each file contained the 
 navigation elements allowing the user to go from page to page. 
 
+# simon notes css
+It is best to use a combination of bootstrap and css selectors and declarations. 
+CSS makes our application visually appealing and adds intuitive user interface elements, but it is still not functional due to the lack of interactivity. 
+How to refer to a CSS file for a HTML file using a link element. 
+```html
+<link rel="stylesheet" href="main.css" />
+```
+How to deply to my production environement. 
+```sh
+./deployFiles.sh -k <yourpemkey> -h <yourdomain> -s simon
+```
