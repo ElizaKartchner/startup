@@ -143,5 +143,25 @@ petRegex.test(text);
 // RETURNS: true
 ```
   
+# JavaScript Rest and Spread 
+`rest` syntax allows you to make the last parameter of the function take as many things and combine them into an array. Provides variadic functions. 
+```js
+function hasNumber(test, ...numbers) {
+  return numbers.some((i) => i === test);
+}
 
+hasNumber(2, 1, 2, 3);
+// RETURNS: true
+```
+Spread does the opposite of rest. It take an object that is iterable (e.g. array or string) and expands it into a function's parameters. Consider the following example.
+  
+```js
+function person(firstName, lastName) {
+  return { first: firstName, last: lastName };
+}
+
+const p = person(...['Ryan', 'Dahl']);
+console.log(p);
+// OUTPUT: {first: 'Ryan', last: 'Dahl'}
+```
 
