@@ -118,5 +118,29 @@ You can convert JSON to, and from, JavaScript using the `JSON.parse` and `JSON.s
 const obj = { a: 2, b: 'crockford', c: undefined };
 const json = JSON.stringify(obj);
 const objFromJson = JSON.parse(json);
+  
+# JavaScript regular expressions (textual pattern mathcers) 
+You can create a regular expression using the class constructor or a regular expression literal.
+
+```js
+const objRegex = new RegExp('ab*', 'i');
+const literalRegex = /ab*/i;
+```
+The `string` class has several functions that accept regular expressions. This includes `match`, `replace`, `search`, and `split`. For a quick test to see if there is a match you can use the regular expression object's `test` function.
+
+```js
+const petRegex = /(dog)|(cat)|(bird)/gim;
+const text = 'Both cats and dogs are pets, but not rocks.';
+
+text.match(petRegex);
+// RETURNS: ['cat', 'dog']
+
+text.replace(petRegex, 'animal');
+// RETURNS: Both animals and animals are pets, but not rocks.
+
+petRegex.test(text);
+// RETURNS: true
+```
+  
 
 
