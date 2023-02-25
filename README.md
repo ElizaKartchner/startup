@@ -118,6 +118,7 @@ You can convert JSON to, and from, JavaScript using the `JSON.parse` and `JSON.s
 const obj = { a: 2, b: 'crockford', c: undefined };
 const json = JSON.stringify(obj);
 const objFromJson = JSON.parse(json);
+```
   
 # JavaScript regular expressions (textual pattern mathcers) 
 You can create a regular expression using the class constructor or a regular expression literal.
