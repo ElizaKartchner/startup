@@ -206,3 +206,26 @@ try {
   // always called code
 }
 ```
+
+# JavaScript Scope 
+Scope is the variables that are visible in the current context of execution. There are four different types. 
+1. **Gobal** - Visible to all code
+1. **Module** - Visible to all code running in a module
+1. **Function** - Visible within a function
+1. **Block** - Visible within a block of code delimited by curly braces
+Closure = a function and its surrounding state. 
+
+## This
+
+The keyword `this` represents a variable that points to an object that contains the context within the scope of the currently executing line of code. The `this` variable is automatically declared and you can reference `this` anywhere in a JavaScript program. Because the value of `this` depends upon the context in which it is referenced, there are three different context that this can refer to:
+
+1. **Global** - When `this` is referenced outside a function or object it refers to the `globalThis` object. The globalThis object represents the context for runtime environment. For example, when running in a browser, globalThis refers to the browser's window object.
+1. **Function** - When `this` is referenced in a function it refers to the object that owns the function. That is either an object you defined or globalThis if the function is defined outside of an object. Note that when running is JavaScript strict mode, a global function's this variable is undefined instead of globalThis.
+1. **Object** - When `this` is referenced in a object it refers to the object.
+
+## modules
+JavaScript modules allow for the partitioning and sharing of code. Initially JavaScript had no support for modules. Node.js, a server side JavaScript execution application, introduced the concept of modules in order to support the importing of packages of JavaScript from third party providers.Node.js modules are called CommonJS modules, and JavaScript modules are called ES modules.
+
+# Document Object Model (DOM) 
+The Document Object Model (DOM) is an object representation of the HTML elements that the browser uses to render the display. The browser also exposes the DOM to external code so that you can write programs that dynamically manipulate the HTML. The browser provides access to the DOM through a global variable name document that points to the root element of the DOM. For everything in an HTML document there is a node in the DOM. This includes elements, attributes, text, comments, and whitespace. All of these nodes form a big tree, with the document node at the top.
+
