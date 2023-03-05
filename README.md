@@ -285,3 +285,7 @@ By combining async, to define functions that return promises, with await, to wai
 ## Debugging JavaScript
 - Console debugging: Insert console.log statements in your code. 
 - Browser debugging: Really understand the code as it execute. Go to sources. Select the file. Set breakpoints. Refresh the brower window. 
+  
+# Simon JavaScript 
+-Create the JS file. Then add a reference to it in your html. 
+-Create one JS function then test it's functionality. Then add more. 
