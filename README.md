@@ -567,6 +567,53 @@ Properly representing the page structure using the elements is important not onl
 ### Block and inline 
 There is a distinction between structure elements that are block vs inline. A block element is meant to be a distinct block in the flow of the content structure. An inline element is meant to be inline with the content flow of a block element. In other words, inline elements do not disrupt the flow of a block element's content. For example, the block element div (division) could have an inline element b in order to bring attention to a portion of its sub-text. Likewise a p (paragraph) element could have a span to mark the paragraph's sub-text as a person's name.
 
+## HTML input elements 
+The main purpose of the `form` element is to submit the values of the inputs it contains. Before JavaScript was introduced the form container element was essential because it was the only way for the browser to send the input data to a web server as part of a request to process the input and generate a new web page displaying the result of the input. 
+The input element represents many different input types. You set the `type` of input with the type attribute.
+
+| Element    | Meaning                          | Example                                        |
+| ---------- | -------------------------------- | ---------------------------------------------- |
+| `form`     | Input container and submission   | `<form action="form.html" method="post">`      |
+| `fieldset` | Labeled input grouping           | `<fieldset> ... </fieldset>`                   |
+| `input`    | Multiple types of user input     | `<input type="" />`                            |
+| `select`   | Selection dropdown               | `<select><option>1</option></select>`          |
+| `optgroup` | Grouped selection dropdown       | `<optgroup><option>1</option></optgroup>`      |
+| `option`   | Selection option                 | `<option selected>option2</option>`            |
+| `textarea` | Multiline text input             | `<textarea></textarea>`                        |
+| `label`    | Individual input label           | `<label for="range">Range: </label>`           |
+| `output`   | Output of input                  | `<output for="range">0</output>`               |
+| `meter`    | Display value with a known range | `<meter min="0" max="100" value="50"></meter>` |
+
+### Validating input
+
+Several of the input elements have validation built into them. This means that they will not accept a value that is not for example, a number, a URL, outside of a range, or an email address. You can also specify the `required` attribute on an input element to mark it as requiring a value before it can be submitted. The `pattern` attribute exists on `text`, `search`, `url`, `tel`, `email`, and `password` inputs. When present, the pattern attribute provides a regular expression that must match for the input to be considered as valid.
+
+### HTML media elements
+The HTML elements that represent media include `img`, `audio`, `video`, `svg`, and `canvas`. The `img`, `audio`, and `video` elements are all simple references to an external file, but `svg` and `canvas` both contain the code for render a visual image that can even be animated.
+
+#### Image 
+```html
+<img
+  alt="mountain landscape"
+  src="https://images.pexels.com/photos/164170/pexels-photo-164170.jpeg"
+/>
+```
+#### Audio 
+```html
+<audio controls src="testAudio.mp3"></audio>
+```
+
+#### Video 
+```html
+<video controls width="300" crossorigin="anonymous">
+  <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"/>
+</video>
+```
+#### Internal media
+The internal media elements `svg` (Scalable Vector Graphics) and `canvas` allow you to actually create images directly within your HTML. SVG is an extremely powerful and widely supported way to render graphics inline in your HTML. The `canvas` element was introduced to HTML in order to facilitate 2D drawing and animation. The HTML for the canvas element is fairly simple, but actually drawing on the canvas requires JavaScript support. 
+
+
+
 # simon notes html
 It is important to test your files before you deploy them to your production environment. 
 As I was creating the simon html files, I noticed that they all had the same footer and the same header. Within the header each file contained the 
