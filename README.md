@@ -152,6 +152,35 @@ rm -rf junk
 ls
 ```
 
+### Editors 
+The code editor is the workspace of a web application developer. Deeply learning an editor that makes you efficient and flexible will pay significant dividends in your ability to deliver quality work and greatly reduce frustration. A good editor should feel like a friend. If you are constantly arguing with your editor, then perhaps you need a relationship adjustment.
+
+## VI aka VIM 
+VI, or technically vim, is one of the oldest console editors. It is extremely powerful and some incredibly talented software engineers use it as their sole development environment. The reason why you should learn VI is that it is available on every Linux server and can do anything that you will need. VI works entirely by keyboard commands. There are two modes in VI, command mode and insert mode. When you open VI, you are in command mode and all of the command keystrokes will work. To edit a document, use the command `i` to enter insert mode. Now your keystrokes will modify the document. To exit insert mode and type commands again, press `ESC`.
+
+The following short list of commands should allow you to do most of what you will ever want to do. Here is a [cheat sheet](https://vim.rtorr.com/) if you want to see all the commands.
+
+| keystroke | meaning                                                                                                                                        |
+| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| `:h`      | help                                                                                                                                           |
+| `i`       | enter insert mode. This will allow you to type and delete text. Use ESC to exit insert mode. No other commands will work while in insert mode. |
+| `u`       | undo                                                                                                                                           |
+| `CTRL-r`  | redo                                                                                                                                           |
+| `gg`      | go to beginning of file                                                                                                                        |
+| `G`       | go to end of file                                                                                                                              |
+| `/`       | search for text that you type after /                                                                                                          |
+| `n`       | next search match                                                                                                                              |
+| `N`       | previous search match                                                                                                                          |
+| `v`       | visually select text                                                                                                                           |
+| `y`       | yank or copy selected text to clipboard                                                                                                        |
+| `p`       | paste clipboard                                                                                                                                |
+| `CTRL-wv` | Split window vertically                                                                                                                        |
+| `CTRL-ww` | Toggle windows                                                                                                                                 |
+| `CTRL-wq` | Close current window                                                                                                                           |
+| `:e`      | Open a file. Type ahead available. If you open a directory you can navigate it in the window                                                   |
+| `:w`      | write file (save)                                                                                                                              |
+| `:q`      | quit. Use `:q!` to exit without saving          
+
 # AWS notes 
 My server IP address is http://18.119.93.245/
 In order to romote shell into my server, the command is ssh -i [key pair file] ubuntu@[ip address]
