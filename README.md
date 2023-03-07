@@ -341,6 +341,21 @@ Git supports the ability to branch your code. This allows you to work on variati
 
 You can store any type of file in Git, but be aware that if you store large binary files, such as images or videos, you are storing a copy of that file each time you make a change to it. For example, suppose you use Git to track the changes you make to a video production project. Every time you save a change to your 10 GB video file you store a complete copy of the file. That means 10 commits of the video file will store 100 GB of data in your repository.
 
+# GitHub 
+Since its beginning as a simple web application for cloning and storing Git repositories, GitHub has added functionality for hosting websites, supporting community pull requests, tracking issues, hosting codespaces, running continuous deployment processes, managing projects, and even AI driven code generation. It is always easier to create your repository first on GitHub and then clone it to your development environment. That way your repositories are automatically linked to each other.
+
+Every repository in GitHub has a unique URL assigned to it. Assuming the repository is public, anyone with the URL can clone it to their development environment. A repository clone is an exact copy of the repository including all of the commits, comments, and SHAs. It also configures the clone to know what the remote source is so that you can use Git commands to keep them in sync as changes are made.
+
+This is the pattern that you want to make a reflexive part of your development process.
+
+1. See the status of your repository (`git status`)
+1. Pull the repository's latest changes from GitHub (`git pull`)
+1. Make changes to the code
+1. Add the changes (`git add myfile`)
+1. Commit the changes (`git commit`)
+1. Push the changes to GitHub (`git push`)
+
+The first time you make a push request to a repository Git will ask you how you want to identify yourself and what credential (e.g. password) to use in order to authenticate with GitHub. You will need to create a [Personal Access Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) and provide that as your password.
 
 # AWS notes 
 My server IP address is http://18.119.93.245/
