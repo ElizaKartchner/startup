@@ -558,6 +558,15 @@ Understanding when different HTML features were introduced helps you know what h
 
 By default a web server will display the HTML file named `index.html` when a web browser, such as Google Chrome, makes a request without asking for a specific HTML file. For example, when you ask for `https://google.com` in your web browser you will actually get back the HTML for the file `https://google.com/index.html`. For this reason, it is very common to name the main HTML file for your web application `index.html`.
 
+### HTML structure elements
+The two major purposes of HTML is to provide structure and content to your web application.
+Properly representing the page structure using the elements is important not only so it makes logical sense to a programmer, but also so that automated tools like search indexing crawlers and accessibility screen readers can correctly interpret the document.
+
+![HTML Structure](https://github.com/webprogramming260/.github/raw/main/profile/html/structure/htmlStructure.jpg)
+
+### Block and inline 
+There is a distinction between structure elements that are block vs inline. A block element is meant to be a distinct block in the flow of the content structure. An inline element is meant to be inline with the content flow of a block element. In other words, inline elements do not disrupt the flow of a block element's content. For example, the block element div (division) could have an inline element b in order to bring attention to a portion of its sub-text. Likewise a p (paragraph) element could have a span to mark the paragraph's sub-text as a person's name.
+
 # simon notes html
 It is important to test your files before you deploy them to your production environment. 
 As I was creating the simon html files, I noticed that they all had the same footer and the same header. Within the header each file contained the 
