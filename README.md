@@ -41,6 +41,41 @@ Rough sketches of my application
 ![Sketch One](Website_first_sketch.jpg)
 ![Sketch Two](Website_2nd_drawing.jpg)
 
+The midterm covers basic console commands, internet concepts (HTTP, DNS, web certs), HTML, CSS, and JavaScript.
+
+# Intro to web programming
+How to be an exceptional web programmer
+- Tech = find right tool for the job, maximize its performance, and automate its execution.
+- Art = visually attractive web application and well written code
+- Social = teams to work together and interact with customers 
+- Discovery = Having a mind that is always questioning 
+Making mistakes is a key component for learning. Recognizing and embracing the power of making mistakes will help you learn faster, and at a deeper level. 
+
+## A brief history of web programming
+1. The formation of the internet that supports the communication of web applications
+1. The creation of HTML and HTTP that made it possible to shared hyperlinked documents (Web 1.0).
+1. The creation of CSS and JavaScript that enabled interactive web applications (Web 2.0).
+
+## The Internet 
+United States Department of Defense created the ARPANET as a means of sharing information between universities doing defense related research.
+The management of the Internet is controlled by two major organizations. The Internet Engineering Task Force (IETF) defines the technical standards that specify how the physical network communicates. The Internet Corporation for Assigned Names and Numbers (ICANN) oversees both the Internet Protocol (IP) address space, and the Domain Name System (DNS).
+
+## HTML = Hypertext Markup Language 
+Tim Berners-Lee was tasked with building a system that would allow researchers to share documents between remote academic institutions. ARPANET provided the necessary connectivity, Berners-Lee defined the protocols for document sharing. Named the document format the HyperText Markup Language (HTML) based on inspiration from the digital publishing industry's Standard Generalized Markup Language (SGML). Documents could be interconnected with what he termed hyperlinks to allow immediate access to related documents. Berners-Lee also made contributions to HyperText Transfer Protocol (HTTP) and the Uniform Resource Locator (URL). These two definitions specify how web documents are addressed and transmitted across the Internet. 
+
+## CSS = Cascading Style Sheets 
+First proposed in 1994 by Håkon Wium Lie, a contemporary of Berners-Lee at CERN, in order to give HTML documents visual styling independent of the content's structure. By 1996 CSS became a standard and all the major browsers began to implement the functionality.
+
+## JavaScript 
+Added the ability to script web pages turning the static web into an interactive experience. "Always bet on JS" - Brendan Eich
+
+### Order of asking questions 
+1. Yourself
+1. The Oracle - google is your friend
+1. Peers
+1. TA
+1. Instructor 
+
 # AWS notes 
 My server IP address is http://18.119.93.245/
 In order to romote shell into my server, the command is ssh -i [key pair file] ubuntu@[ip address]
