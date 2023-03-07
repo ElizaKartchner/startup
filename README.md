@@ -76,6 +76,82 @@ Added the ability to script web pages turning the static web into an interactive
 1. TA
 1. Instructor 
 
+### Technology stack
+The collection of technologies that you use to create or deliver you web application is called a technology stack. it is a stack because they usually layer one on top of each other. 
+
+## The Console 
+Also know as the command line, shell, or terminal, the console provides access to the file system and allows for the execution of command line applications. POSIX compliance means that it supports a standard set of console commands. One of the primary purposes of a console application is to view the files on the computer. The files on a computer are organized into a tree structure of nodes called directories. You can see which directory you are in with the `pwd` (present working directory). You can list all of the files in the directory with ls (list files). Most command line applications take parameters that are specified after you type the application name. For example, `ls` can list all files (even hidden ones) in a long format if you provide the parameter `-la`. command.
+
+### Executing commands 
+The other primary purpose of the console is to execute commands. Here are some basic commands you should know and will come to love. 
+- **echo** - Output the parameters of the command
+- **cd** - Change directory
+- **mkdir** - Make directory
+- **rmdir** - Remove directory
+- **rm** - Remove file(s)
+- **mv** - Move file(s)
+- **cp** - Copy files
+- **ls** - List files
+- **curl** - Command line client URL browser
+- **grep** - Regular expression search
+- **find** - Find files
+- **top** - View running processes with CPU and memory usage
+- **df** - View disk statistics
+- **cat** - Output the contents of a file
+- **less** - Interactively output the contents of a file
+- **wc** - Count the words in a file
+- **ps** - View the currently running processes
+- **kill** - Kill a currently running process
+- **sudo** - Execute a command as a super user (admin)
+- **ssh** - Create a secure shell on a remote computer
+- **scp** - Securely copy files to a remote computer
+- **history** - Show the history of commands
+- **ping** - Check if a website is up
+- **tracert** - Trace the connections to a website
+- **dig** - Show the DNS information for a domain
+- **man** - Look up a command in the manual
+
+You can also chain the input and output of commands using special characters
+
+- `|` - Take the output from the command on the left and _pipe_, or pass, it to the command on the right
+- `>` - Redirect output to a file. Overwrites the file if it exists
+- `>>` - Redirect output to a file. Appends if the file exists
+
+For example, you can list the files in a directory, pipe it into `grep` to search for files created in Nov, and then pipe that into `wc` to count the number of files found with a date of Nov.
+
+```
+ls -l | grep ' Nov ' | wc -l
+```
+
+There are also keystrokes that have special meaning in the console.
+
+- `CTRL-R` - Use type ahead to find previous commands
+- `CTRL-C` - Kill the currently running command
+
+The better you get at working with the console the more efficient your programming will be. If I ever want to experiment with console commands... Open a console window and create a junk directory that you can play with by executing the command `mkdir junk` (make directory). Then execute the command `cd junk` to change into that directory. Try the following sequence of commands:
+
+```sh
+mkdir junk
+cd junk
+pwd
+ls
+ls -la
+ls ../
+echo "hello world" > test.txt
+ls -l
+cat test.txt
+cp test.txt other.txt
+ls
+cat test.txt >> other.txt
+less other.txt # press `q` to exit less
+rm test.txt
+ls
+cd ..
+ls
+rm -rf junk
+ls
+```
+
 # AWS notes 
 My server IP address is http://18.119.93.245/
 In order to romote shell into my server, the command is ssh -i [key pair file] ubuntu@[ip address]
