@@ -76,3 +76,9 @@ footer a {
       flex: 1 100vh;
     }
 }
+
+.players {
+    text-align: right;
+    background-color: #A8D0E6;
+    padding-right: 20px;
+}
