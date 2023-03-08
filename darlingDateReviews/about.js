@@ -1,4 +1,4 @@
-class TopDates {
+class About {
     constructor() {
 
         const playerNameEl = document.querySelector('.player-name');
@@ -12,4 +12,4 @@ class TopDates {
 }
 
 
-const topDates = new TopDates();
+const about = new About();
