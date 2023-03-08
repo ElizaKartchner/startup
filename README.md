@@ -1077,6 +1077,28 @@ coinToss
 //    Coin toss result: tails
 //    Toss completed
 ```
+# Promise example question. 
+What does this code print out? 
+```js
+const p = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    console.log('taco');
+	resolve(true);
+  }, 10000);
+});
+console.log('burger')
+	
+p
+.then((result) => console.log('shake'))
+.catch((e) => console.log('salad'))
+.finally(() => console.log('noddle'))
+
+console.log('fries')
+	
+```
+Answer: Burger, fires, taco, shake, noodles 
+
+	
 # Async and await 
   
 These functions provide a more concise representation then promises. The `await` keyword wraps the execution of a promise and removed the need to chain functions. The `await` expression will block until the promise state moves to `fulfilled`, or throws an exception if the state moves to `rejected`. One important restriction for working with `await` is that you cannot call await unless it is called at the top level of the JavaScript, or is in a function that is defined with the `async` keyword. Applying the `async` keyword transforms the function so that it returns a promise that will resolve to the value that was previously returned by the function. Basically this turns any function into an asynchronous function, so that it can in turn make asynchronous requests.
@@ -1098,11 +1120,46 @@ try {
 
 The `async` keyword declares that a function returns a promise. The `await` keyword wraps a call to the `async` function, blocks execution until the promise has resolved, and then returns the result of the promise.
 By combining async, to define functions that return promises, with await, to wait on the promise, you can create code that is asynchronous, but still maintains the flow of the code without explicitly using callbacks.
+	
+## await and async pratice question 
+What would the code print out? 
+```js
+const a = async function() {
+	return new Promise((resolve, reject) => {
+	 setTimeout(() => {
+	console.log('D');
+	resolve(true);
+  }, 10000);
+}
+	
+try {
+  console.log(`A`);
+  await a();
+  console.log(`B`);
+} catch (err) {
+   console.log(`C`);
+} 
+```
+Answer: ABD
 
 ## Debugging JavaScript
 - Console debugging: Insert console.log statements in your code. 
 - Browser debugging: Really understand the code as it execute. Go to sources. Select the file. Set breakpoints. Refresh the brower window. 
   
 # Simon JavaScript 
--Create the JS file. Then add a reference to it in your html. 
--Create one JS function then test it's functionality. Then add more. 
+- Create the JS file. Then add a reference to it in your html. 
+- Create one JS function then test it's functionality. Then add more. 
+	
+# Some general notes about the midterm 
+The CSS property padding puts space around the contect of selected elements 
+<div> creates a division element in HTML
+The order of the CSS box model is context, padding, border, margin
+<ul> is the HTML tag or an unordered list
+The DOM textContext property sers the child text for an element 
+Valid JSON example = {"x":3}
+chmod +x depoly.sh makes a scrpt executable
+DNA subdomain example: cs260.cs.byu.edu
+CNAME = used to point to another DNA record
+Valid JSON always has the key value in double quotes. Undefine is not a value object, but null can be. 
+Regex /A|f/i (the i is case insensitive) 
+Valid JavaScript object?  {n:1} → key value pairs do not have equal signs 
