@@ -82,3 +82,8 @@ footer a {
     background-color: #A8D0E6;
     padding-right: 20px;
 }
+
+
+.like-button {
+    display: inline-block;
+}

@@ -22,6 +22,11 @@ class TopDates {
         return localStorage.getItem('dateInfo') ?? 'Description of date idea';
     }
 
+    increaseLikes() {
+        const numLikesElement = document.querySelector("#numLikes");
+        numLikesElement.textContent = parseInt(numLikesElement.textContent) + 1;
+    }
+
 }
 
 
