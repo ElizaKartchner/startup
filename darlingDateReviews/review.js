@@ -15,6 +15,18 @@ class CreateReview {
         return localStorage.getItem('userName') ?? 'Mystery player';
     }
 
+    cacheReviewInfo() {
+        const dateIdeaElement = document.querySelector("#newDateIdea");
+        const dateInfoElement = document.querySelector("#infoDateIdea");
+        localStorage.setItem("dateIdea", dateIdeaElement.value);
+        localStorage.setItem("dateInfo", dateInfoElement.value);
+        window.location.href = "topDates.html";
+
+        // set the value to blank 
+        dateIdeaElement.value = "";
+        dateInfoElement.value = "";
+    }
+
 }
 
 
