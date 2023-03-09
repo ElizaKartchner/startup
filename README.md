@@ -1235,7 +1235,7 @@ try {
    console.log(`C`);
 } 
 ```
-Answer: ABD
+Answer: ADB
 
 ## Debugging JavaScript
 - Console debugging: Insert console.log statements in your code. 
@@ -1246,15 +1246,20 @@ Answer: ABD
 - Create one JS function then test it's functionality. Then add more. 
 	
 # Some general notes about the midterm 
-The CSS property padding puts space around the contect of selected elements 
-<div> creates a division element in HTML
-The order of the CSS box model is context, padding, border, margin
-<ul> is the HTML tag or an unordered list
-The DOM textContext property sers the child text for an element 
-Valid JSON example = {"x":3}
-chmod +x depoly.sh makes a scrpt executable
-DNA subdomain example: cs260.cs.byu.edu
-CNAME = used to point to another DNA record
-Valid JSON always has the key value in double quotes. Undefine is not a value object, but null can be. 
-Regex /A|f/i (the i is case insensitive) 
-Valid JavaScript object?  {n:1} → key value pairs do not have equal signs 
+- The CSS property padding puts space around the contect of selected elements 
+- <div> creates a division element in HTML
+- The order of the CSS box model is context, padding, border, margin
+- <ul> is the HTML tag or an unordered list
+- The DOM textContext property sers the child text for an element 
+- Valid JSON example = {"x":3}
+- chmod +x depoly.sh makes a scrpt executable
+- DNA subdomain example: cs260.cs.byu.edu
+- CNAME = used to point to another DNA record
+- Valid JSON always has the key value in double quotes. Undefine is not a value object, but null can be. 
+- Regex /A|f/i (the i is case insensitive) 
+- Valid JavaScript object?  {n:1} → key value pairs do not have equal signs 
+
+# Startup JavaScript 
+- You can create new elements in the dom. Just make sure to append them to a child so they are visible. 
+- You can create an array full of objects 
+- You can use local storgage to store information
