@@ -3,12 +3,6 @@ class TopDates {
         const playerNameEl = document.querySelector('.player-name');
         playerNameEl.textContent = this.getPlayerName();
 
-        /*const dateIdeaElement = document.querySelector("#testHeader");
-        dateIdeaElement.textContent = this.getDateIdea();
-
-        const dateInfoElement = document.querySelector("#Testp");
-        dateInfoElement.textContent = this.getDateInfo();*/
-
         let dateObject = [];
         const dateText = localStorage.getItem('dates');
         if (dateText) {
@@ -16,10 +10,12 @@ class TopDates {
         }
 
         if (dateObject.length) {
+            let counter = 1;
             for (const [i, newIdea] of dateObject.entries()) {
                 const dateIdea = newIdea.idea;
                 const dateInfo = newIdea.info;
-                this.createNewCard(dateIdea, dateInfo);
+                this.createNewCard(counter, dateIdea, dateInfo);
+                counter = counter + 1;
             }
         } else {
             this.createNewCard("No ideas yet", "Please create a review");
@@ -40,12 +36,18 @@ class TopDates {
         return localStorage.getItem('dateInfo') ?? 'Description of date idea';
     }
 
-    increaseLikes() {
-        const numLikesElement = document.querySelector("#numLikes");
+    increaseLikes(button) {
+        let selector = "#numLikes" + button.id;
+        console.log("Inside of increase likes");
+        console.log(selector);
+        const numLikesElement = document.querySelector(selector);
         numLikesElement.textContent = parseInt(numLikesElement.textContent) + 1;
     }
 
-    createNewCard(dateIdea = "Test date idea", dateDescription = "Test Description of date idea") {
+    createNewCard(counter, dateIdea = "Test date idea", dateDescription = "Test Description of date idea") {
+        const likeCounter = "numLikes" + counter;
+        console.log(likeCounter);
+
         const header = document.querySelector("#dateIdeaHeader");
 
         const cardEL = document.createElement('div');
@@ -78,8 +80,12 @@ class TopDates {
          
         const likeButton = document.createElement('a');
         likeButton.className = "btn btn-primary";
-        likeButton.setAttribute("onclick", "topDates.increaseLikes()");
-        likeButton.href = "#";
+        //likeButton.onclick = this.increaseLikes(likeCounter);
+        //likeButton.setAttribute("onclick", this.increaseLikes(likeCounter));
+        //likeButton.addEventListener('click', this.increaseLikes(likeCounter));
+        likeButton.id = counter;
+        likeButton.setAttribute("onclick", "topDates.increaseLikes(this)");
+        likeButton.href = "#!";
         likeButton.role = "button";
         likeButton.style = "background-color: #F76C6C;";
         likeButton.textContent = "Like this idea!";
@@ -102,7 +108,7 @@ class TopDates {
 
         //<p id="numLikes">0</p>
         const numLikesEl = document.createElement('p');
-        numLikesEl.id = "numLikes";
+        numLikesEl.id = likeCounter;
         numLikesEl.textContent = "0";
         numLikesEl.style.fontSize = "45%";
         div4.appendChild(numLikesEl);
@@ -157,3 +163,22 @@ const topDates = new TopDates();
                 </div>
             </div>
         </main>*/
+
+
+            /*<div class="card" style="background-color: white;">
+                <h5 class="card-header">Hike the Y!</h5>
+                <div class="card-body">
+                  <p class="card-text">Description of date idea.</p>
+                </div>
+                <div class="container">
+                    <div class="like-button">
+                        <a class="btn btn-primary" onclick="topDates.increaseLikes()" href="#" role="button" style="background-color: #F76C6C;">Like this idea!</a>
+                    </div>
+                    <div class="like-button">
+                        <p id="likes">Likes: </p>
+                    </div>
+                    <div class="like-button">
+                        <p id="numLikes">0</p>
+                    </div>
+                </div>
+            </div>*/
