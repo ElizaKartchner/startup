@@ -1576,3 +1576,79 @@ You can now open you browser and point it to `localhost:8080` and view the resul
 ![Node HTTP](https://github.com/webprogramming260/.github/raw/main/profile/webServices/node/webServicesNodeHttp.jpg)
 
 You can kill the process by pressing `CTRL-C` in the console.
+
+# Express 
+Express is a wrapper around HTTP. It provides support for...
+1. Routing requests for service endpoints
+1. Manipulating HTTP requests with JSON body content
+1. Generating HTTP responses
+1. Using `middleware` to add functionality
+
+Everything in Express revolves around creating and using HTTP routing and middleware functions.
+You create an Express application by using NPM to install the Express package and then calling the `express` constructor to create the express application and listen for HTTP requests on a desired port.
+
+```sh
+➜ npm install express
+```
+
+```js
+const express = require('express');
+const app = express();
+
+app.listen(8080);
+```
+
+With the app object you can now add HTTP routing and middleware functions to the application.
+
+HTTP endpoints are implemented in Express by defining routes that call a function based upon an HTTP path. The Express app object supports all of the HTTP verbs as functions on the object. For example, if you want to have a route function that handles an HTTP GET request for the URL path `/store/provo` you would call the `get` method on the app.
+
+```js
+app.get('/store/provo', (req, res, next) => {
+  res.send({ name: 'provo' });
+});
+```
+
+The express app compares the routing function patterns in the order that they are added to the Express app object. So if you have two routing functions with patterns that both match, the first one that was added will be called and given the next matching function in the `next` parameter. If you wanted an endpoint that used the POST or DELETE HTTP verb then you just use the `post` or `delete` function on the Express app object.
+
+### Using middleware
+The standard [Mediator/Middleware](https://www.patterns.dev/posts/mediator-pattern/) design pattern has two pieces: A mediator and middleware. Middleware represents componentized pieces of functionality. The mediator loads the middleware components and determines their order of execution. When a request comes to the mediator it then passes the request around to the middleware components. Following this pattern, Express is the mediator, and middleware functions are the middleware components.
+
+Express comes with a standard set of middleware functions. These provide functionality like routing, authentication, CORS, sessions, serving static web files, cookies, and logging. Some middleware functions are provided by default, and other ones must be installed using NPM before you can use it. You can also write your own middleware functions and use them with Express.
+
+A middleware function looks very similar to a routing function. That is because routing functions are also middleware functions. The only difference is that routing functions are only called if the associated pattern matches. Middleware functions are always called for every HTTP request unless a preceding middleware function does not call `next`. A middleware function has the following pattern:
+
+```js
+function middlewareName(req, res, next)
+```
+
+The middleware function parameters represent the HTTP request object (`req`), the HTTP response object (`res`), and the `next` middleware function to pass processing to. You should usually call the `next` function after completing processing so that the next middleware function can execute.
+
+### Error handling 
+You can also add middleware for handling errors that occur. Error middleware looks similar to other middleware functions, but it takes an additional `err` parameter that contains the error.
+
+```js
+function errorMiddlewareName(err, req, res, next)
+```
+
+If you wanted to add a simple error handler for anything that might go wrong while process HTTP requests you could add the following.
+
+```js
+app.use(function (err, req, res, next) {
+  res.status(500).send({ type: err.name, message: err.message });
+});
+```
+
+We can test that our error middleware is getting used by adding a new endpoint that generates an error.
+
+```js
+app.get('/error', (req, res, next) => {
+  throw new Error('Trouble in river city');
+});
+```
+
+Now if we use curl to call our error endpoint we can see that the response comes from the error middleware.
+
+```sh
+➜ curl localhost:8080/error
+{"type":"Error","message":"Trouble in river city"}
+```
