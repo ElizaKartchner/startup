@@ -1684,3 +1684,6 @@ With the ability to run automated UI tests, we now turn our attention to testing
 	  
 ## Endpoint testing 
 Using test driven development (TDD) for testing service endpoints is a common industry practice. Testing services is usually easier than writing UI tests because it does not require a browser. However, it does still take effort to learn how to write tests that are effective and efficient. Making this a standard part of your development process will give you a significant advantage as you progress in your professional career.
+
+## Simon Service Notes 
+By creating a pubic folder to put all of our html and css files in it, we separted out front end logic and code from our back end. We are using express and node js to create our server that will listen on port 3000 for simon (4000 for our start up). We can then make api calls to the server. We can show that by running localhost:3000 in a broswer. We use this to test our application during development instead of the live server extention in VS code. 
