@@ -1729,3 +1729,33 @@ Here is a list of some of the popular data services that are available.
 
 ## MongoDB 
 For the projects in this course that require data services, we will use MongoDB. Mongo increases developer productivity by using JSON objects as its core data model. This makes it easy to have an application that uses JSON from the top to the bottom of the technology stack. A mongo database is made up of one or more collections that each contain JSON documents. You can think of a collection as a large array of JavaScript objects, each with a unique ID.
+
+Unlike relational databases that require a rigid table definition where each column must be strictly typed and defined beforehand, Mongo has no strict schema requirements. Each document in the collection usually follows a similar schema, but each document may have specialized fields that are present, and common fields that are missing. This allows the schema of a collection to morph organically as the data model of the application evolves. To add a new field to a Mongo collection you just start insert the field into the documents as desired. If the field is not present, or has a different type in some documents, then the document simply doesn't match the query criteria when the field is referenced.
+
+The first step to using Mongo in your application is to install the `mongodb` package using NPM.
+
+```sh
+➜ npm install mongodb
+```
+
+## Keeping your keys out of your code
+
+You need to protect your credentials for connecting to your Mongo database. One common mistake is to check them into your code and then post it to a public GitHub repository. Instead you can load your credentials when the application executes. One common way to do that is to read them from environment variables. The JavaScript `process.env` object provides access to the environment.
+
+```Javascript
+const userName = process.env.MONGOUSER;
+const password = process.env.MONGOPASSWORD;
+const hostname = process.env.MONGOHOSTNAME;
+
+if (!userName) {
+  throw Error("Database not configured. Set environment variables");
+}
+```
+
+Following this pattern requires you to set these variables in your development and production environments before you can successfully execute.
+
+## Simon DB Notes 
+Before you can start writing your own code you need to get a MongoDB Atlas account and create a database cluster that you can use as your database service
+Don't forget to set the keys in BOTH your production and development environments!!!
+Also do not forget to change mongodb to allow access from any IP address. 
+You can check what is in your database by logging into mongodb and looking at the cluster and the specific collection
