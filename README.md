@@ -1687,3 +1687,45 @@ Using test driven development (TDD) for testing service endpoints is a common in
 
 ## Simon Service Notes 
 By creating a pubic folder to put all of our html and css files in it, we separted out front end logic and code from our back end. We are using express and node js to create our server that will listen on port 3000 for simon (4000 for our start up). We can then make api calls to the server. We can show that by running localhost:3000 in a broswer. We use this to test our application during development instead of the live server extention in VS code. 
+
+## Storage Services 
+Web applications commonly need to store files associated with the application or the users of the application. This includes files such as images, user uploads, documents, and movies. Files usually have an ID, some metadata, and the bytes representing the file itself. These can be stored using a database service, but usually that is overkill and a simpler solution will be cheaper.
+
+It might be tempting to store files directly on your server. This is usually a bad idea for several reasons.
+
+1. Your server has limited drive space. If you server runs out of drive space your entire application will fail.
+1. You should consider your server as being ephemeral, or temporary. It can be thrown away and replaced by a copy at any time. If you start storing files on the server, then your server has state that cannot be easily replaced.
+1. You need backup copies of your application and user files. If you only have one copy of your files on your server, then they will disappears when your server disappears, and you must always assume that your server will disappear.
+
+## AWS S3
+There are many such solutions out there, but one of the most popular ones is [AWS S3](https://aws.amazon.com/s3/). S3 provides the following advantages:
+
+1. It has unlimited capacity
+1. You only pay for the storage that you use
+1. It is optimized for global access
+1. It keeps multiple redundant copies of every file
+1. You can version the files
+1. It is performant
+1. It supports metadata tags
+1. You can make your files publicly available directly from S3
+1. You can keep your files private and only accessible to your application
+
+## Data Services
+Web applications commonly need to store application and user data persistently. The data can be many things, but it is usually a representation of complex interrelated objects. This includes this like a user profile, organizational structure, game play information, usage history, billing information, peer relationship, library catalog, and so forth.
+
+Historically SQL databases have served as the general purpose data service solution, but starting around 2010 specialty data services that better support document, graph, JSON, time, sequence, and key-value pair data began to take significant roles in applications from major companies. These data services are often called NoSQL solutions because they do not use the general purpose relational database paradigms popularized by SQL databases. However, they all have very different underlying data structures, strengths, and weaknesses. That means that you should not simply split all of the possible data services into two narrowly defined boxes, SQL and NoSQL, when you are considering the right data service for your application.
+
+Here is a list of some of the popular data services that are available.
+
+| Service       | Specialty             |
+| ------------- | --------------------- |
+| MySQL         | Relational queries    |
+| Redis         | Memory cached objects |
+| ElasticSearch | Ranked free text      |
+| MongoDB       | JSON objects          |
+| DynamoDB      | Key value pairs       |
+| Neo4J         | Graph based data      |
+| InfluxDB      | Time series data      |
+
+## MongoDB 
+For the projects in this course that require data services, we will use MongoDB. Mongo increases developer productivity by using JSON objects as its core data model. This makes it easy to have an application that uses JSON from the top to the bottom of the technology stack. A mongo database is made up of one or more collections that each contain JSON documents. You can think of a collection as a large array of JavaScript objects, each with a unique ID.
