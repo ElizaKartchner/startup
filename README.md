@@ -1759,3 +1759,41 @@ Before you can start writing your own code you need to get a MongoDB Atlas accou
 Don't forget to set the keys in BOTH your production and development environments!!!
 Also do not forget to change mongodb to allow access from any IP address. 
 You can check what is in your database by logging into mongodb and looking at the cluster and the specific collection
+
+## Authorization services 
+If your application is going to remember a user's data then it will need a way to uniquely associate the data with a particular credential. That usually means that you authenticate a user by asking for information, such as an email address and password. You then remember, for some period of time, that the user has authenticated by storing an authentication token on the user's device. Often that token is stored in a cookie that is passed back to your web service on each request. The service can now associate data that the user supplies with a unique identifier that corresponds to their authorization token.
+	  
+The first step towards supporting authentication in your web application is providing a way for users to uniquely identify themselves. This usually requires two service endpoints. One to initially `create` an authentication credential, and a second to authenticate, or `login`, on future visits. Once a user is authenticated we can control access to other endpoints.
+	  
+### Important steps to remember 
+1. Run `npm init -y` to initial the project to work with node.js.
+1. Run `npm install express cookie-parser mongodb uuid bcrypt` to install all of the packages we are going to use.
+1. Run `node main.js` or press `F5` in VS Code to start up the web service.
+	  
+### Generating authentication tokens 
+To generate a reasonable authentication token we use the uuid package. UUID stands for Universally Unique Identifier, and it does a really good job creating a hard to guess, random, unique ID.
+	  
+### Securing passwords 
+Next we need to securely store our passwords. Failing to do so is a major security concern. If, and it has happened to many major companies, a hacker is able to access the database, they will have the passwords for all of your users. This may not seem like a big deal if your application is not very valuable, but users often reuse passwords. That means you will also provide the hacker with the means to attack the user on many other websites.
+
+So instead of storing the password directly, we want to cryptographically hash the password so that we never store the actual password. When we want to validate a password during login, we can hash the login password and compare it to our stored hash of the password. To hash our passwords we will use the bcrypt package. This creates a very secure one way hash of the password.
+	  
+### Passing authentication tokens 
+We now need to pass our generated authentication token to the browser when the login endpoint is called, and get it back on subsequent requests. To do this we use HTTP cookies. The `cookie-parser` package provides middleware for cookies and so we will leverage that.
+
+We import the `cookieParser` object and then tell our app to use it. When a user is successfully created, or logs in, we set the cookie header. Since we are storing an authentication token in the cookie we want to make it as secure as possible, and so we use the `httpOnly`, `secure`, and `sameSite` options.
+
+- `httpOnly` tells the browser to not allow JavaScript running on the browser to read the cookie.
+- `secure` requires HTTPS to be used when sending the cookie back to the server.
+- `sameSite` will only return the cookie to the domain that generated it.
+	  
+## Simon login notes 
+About the login endpoint: The login authorization endpoint needs to get the hashed password from the database, compare it to the provided password using `bcrypt.compare`, and if successful set the authentication token in the cookie. If the password does not match, or there is no user with the given email, the endpoint returns status 401 (unauthorized).
+	  
+When a user is logged in, the cookie is added. When a user makes a secure request, the cookie is checked. When the user logs out, the cookie is removed.
+	  
+The public/index.html, public/login.js, and public/login.css files provide all the login UI. Bootstrap provides the styling for the controls.
+
+When index.html is loaded an anonymous function in login.js determines if the user is already authenticated and uses that state to hide or show the login controls.
+
+When a user logs in, logs out, or creates credentials the service endpoints are called.
