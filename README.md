@@ -1797,3 +1797,19 @@ The public/index.html, public/login.js, and public/login.css files provide all t
 When index.html is loaded an anonymous function in login.js determines if the user is already authenticated and uses that state to hide or show the login controls.
 
 When a user logs in, logs out, or creates credentials the service endpoints are called.
+
+# WebSockets
+HTTP is based on a client server architecture. A client always initiates the request and the server responds. This is great if you are building a global document library connected by hyperlinks, but for many other use cases it just doesn't work. Applications for notifications, distributed task processing, peer to peer communication, or asynchronous events need communication that is initiated by two or more connected devices.
+
+For years, web developers created hacks to worked around the limitation of the client/server model. This included solutions like having the client frequently pinging the server to see if the server had anything to say, or keeping client initiated connections open for a very long time as the client waited for some event to happen on the server. Needless to say, none of these solutions were elegant or efficient.
+
+Finally, in 2011 the communication protocol WebSocket was created to solve this problem. The core feature of WebSocket is that it is fully duplexed. Meaning that after the initial connection is made from a client, using vanilla HTTP, and then upgraded by the server to a WebSocket connection, the relationship changes to a peer to peer connection where either party can efficiently send data at any time.
+
+WebSocket connections are still only between two parties. So if you want to facilitate a conversation between a group of users the server must act as the intermediary. Each peer first connects to the server, and then the server forwards messages amongst the peers.
+
+## Simon WebSockets Notes 
+You can debug both sides of the WebSocket communication with VS Code to debug the server, and Chrome to debug the client. 
+
+A WebSocket connection will eventually close automatically if no data is sent across it. In order to prevent that from happening the WebSocket protocol supports the ability to send a ping message to see if the peer is still there and receive pong responses to indicate the affirmative. It make this work we use setInterval to send out a ping every 10 seconds to each of our peer connections and clean up any connections that did not response to our previous ping. In our connection handler we listen for the pong response and mark the connection as alive. Any connection that did not response will remain in the not alive state and get cleaned up on the next pass.
+
+The first step is to install websockets with `npm install websockets`. The PeerProxy class contains the protocol upgrade from HTTP to WebSocket, tracks new WebSocket connections, passes (or proxies) requests between connections, and implements ping/pong to keep connections alive.
