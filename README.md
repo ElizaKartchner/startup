@@ -1813,3 +1813,25 @@ You can debug both sides of the WebSocket communication with VS Code to debug th
 A WebSocket connection will eventually close automatically if no data is sent across it. In order to prevent that from happening the WebSocket protocol supports the ability to send a ping message to see if the peer is still there and receive pong responses to indicate the affirmative. It make this work we use setInterval to send out a ping every 10 seconds to each of our peer connections and clean up any connections that did not response to our previous ping. In our connection handler we listen for the pong response and mark the connection as alive. Any connection that did not response will remain in the not alive state and get cleaned up on the next pass.
 
 The first step is to install websockets with `npm install websockets`. The PeerProxy class contains the protocol upgrade from HTTP to WebSocket, tracks new WebSocket connections, passes (or proxies) requests between connections, and implements ping/pong to keep connections alive.
+
+# Start up deliverable - Service - Notes
+Make sure to change the port number to be 4000. 
+
+## Web frameworks
+What do web frameworks do? 
+- Simplify common patterns
+- Provide common components (UI widgetly things) 
+- Improve Performance 
+- Increase Device coverage 
+
+What are some examples of different web frameworks? Vue, Svelte, React, Angular component, 
+
+## React 
+The name React comes from its focus on making reactive web page components that automatically update based on user interactions or changes in the underlying data. React combines JavaScript and HTML into its component format. CSS must be declared outside of the JSX file. The component itself highly leverages the functionality of JavaScript and can be represented as a function or class.
+
+React was created by Jordan Walke for use at FaceBook in 2011. It was first used with FaceBook's news feed and then as the main framework for Instagram. Shortly thereafter, FaceBook open sourced the framework and it was quickly adopted by many popular web applications.
+
+React abstracts HTML into a JavaScript variate called JSX. JSX is converted into valid HTML and JavaScript using a preprocessor called `Babel`.
+
+## React Components
+
