@@ -1834,4 +1834,8 @@ React was created by Jordan Walke for use at FaceBook in 2011. It was first used
 React abstracts HTML into a JavaScript variate called JSX. JSX is converted into valid HTML and JavaScript using a preprocessor called `Babel`.
 
 ## React Components
+React components allow you to modularize the functionality of your application. This allows the underlying code to directly represent the components that a user interacts with. It also enables code reuse as common application component often show up repeatedly.
+	  
+One of the primary purposes of a component is to generate user interface. This is done with the components `render` function. Whatever is returned from the render function is inserted into the component HTML element. React components also allow you to pass information to them in the form of element properties. The component receives the properties in its constructor and then can display them when it renders. In addition to properties, a component can have internal state. Component state is created by calling the `React.useState` hook function. The useState function returns a variable that contains the current state and a function to update the state. 
 
+A component's properties and state are used by the React framework to determine the reactivity of the interface. Reactivity controls how a component reacts to actions taken by the user or events that happen within the application. Whenever a component's state or properties change, the render function for the component and all of its dependent component render functions are called.
