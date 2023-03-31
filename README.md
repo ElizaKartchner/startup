@@ -1816,6 +1816,7 @@ The first step is to install websockets with `npm install websockets`. The PeerP
 
 # Start up deliverable - Service - Notes
 Make sure to change the port number to be 4000. 
+Can use deleteone or deletemany or updateone to change the data in mongoDB. Use git rm <filename> to get rid of the git message that a file has been deleted if you just moved the file to a different location. Drawing the api endpoints out on paper is very helpful. 
 
 ## Web frameworks
 What do web frameworks do? 
