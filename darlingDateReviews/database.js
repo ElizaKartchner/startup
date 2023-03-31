@@ -47,10 +47,17 @@ function getDateIdeas() {
   return query.toArray();
 }
 
+function updateLikes(newIdea) {
+  dateIdeasCollection.deleteOne(newIdea);
+  newIdea['likes'] = newIdea.likes + 1;
+  dateIdeasCollection.insertOne(newIdea);
+}
+
 module.exports = {
   getUser,
   getUserByToken,
   createUser,
   addDateIdea,
   getDateIdeas,
+  updateLikes,
 };

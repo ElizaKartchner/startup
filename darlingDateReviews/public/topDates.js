@@ -2,13 +2,35 @@ class TopDates {
     constructor() {
         const playerNameEl = document.querySelector('.player-name');
         playerNameEl.textContent = this.getPlayerName();
+        this.getDateIdeas();
+    }
 
+    async getDateIdeas() {
+        let dates = []
+        try {
+            // Get the latest date ideas from the service
+            const response = await fetch('/api/dateIdeas');
+            dates = await response.json();
+
+            // Save the ideas in case we go offline in the future
+            localStorage.setItem('dates', JSON.stringify(dates));
+            this.displayDateIdeas(dates);
+        } catch {
+            // If there was an error then just get the scores locally
+            this.getDateIdeasLocal();
+        }
+    }
+
+    getDateIdeasLocal() {
         let dateObject = [];
         const dateText = localStorage.getItem('dates');
         if (dateText) {
             dateObject = JSON.parse(dateText);
         }
+        this.displayDateIdeas(dateObject);
+    }
 
+    displayDateIdeas(dateObject) {
         if (dateObject.length) {
             let counter = 1;
             for (const [i, newIdea] of dateObject.entries()) {
@@ -20,8 +42,6 @@ class TopDates {
         } else {
             this.createNewCard("No ideas yet", "Please create a review");
         }
-
-
     }
 
     getPlayerName() {
@@ -38,11 +58,39 @@ class TopDates {
 
     increaseLikes(button) {
         let selector = "#numLikes" + button.id;
-        console.log("Inside of increase likes");
-        console.log(selector);
         const numLikesElement = document.querySelector(selector);
         numLikesElement.textContent = parseInt(numLikesElement.textContent) + 1;
+        
+        let userName = this.getPlayerName();
+        let numLikes = parseInt(numLikesElement.textContent);
+        let dateIdea = "Go hike the y!"
+        let dateInfo = "This is an awesome date idea!"
+        const newIdea = { user: userName, idea: dateIdea, info: dateInfo, likes: numLikes};
+        console.log(newIdea);
+        this.updateLikes(newIdea);
     }
+
+    async updateLikes(newIdea) {
+        let dates = []
+        try {
+            const response = await fetch('/api/likes', {
+              method: 'POST',
+              headers: { 'content-type': 'application/json' },
+              body: JSON.stringify(newIdea),
+            });
+
+            // FIX ME
+            //dates = await response.json();
+
+            // Save the ideas in case we go offline in the future
+            //localStorage.setItem('dates', JSON.stringify(dates));
+            //this.displayDateIdeas(dates);
+
+        } catch {
+            console.log("There was an error updating the number of likes");
+        }
+    }
+    
 
     createNewCard(counter, dateIdea = "Test date idea", dateDescription = "Test Description of date idea") {
         const likeCounter = "numLikes" + counter;
@@ -118,67 +166,3 @@ class TopDates {
 
 const topDates = new TopDates();
 
-/*
-<h1 id="dateIdeaHeader">Top Five Date Ideas for the Week</h1>
-            <div class="card" style="background-color: white;">
-                <h5 class="card-header">Hike the Y!</h5>
-                <div class="card-body">
-                  <p class="card-text">Description of date idea.</p>
-                </div>
-                <div class="container">
-                    <div class="like-button">
-                        <a class="btn btn-primary" onclick="topDates.increaseLikes()" href="#" role="button" style="background-color: #F76C6C;">Like this idea!</a>
-                    </div>
-                    <div class="like-button">
-                        <p id="likes">Likes: </p>
-                    </div>
-                    <div class="like-button">
-                        <p id="numLikes">0</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card" style="background-color: white;">
-                <h5 class="card-header">Farmers Market Saturday Morning</h5>
-                <div class="card-body">
-                  <p class="card-text">Description of date idea.</p>
-                </div>
-            </div>
-            <div class="card" style="background-color: white;">
-                <h5 class="card-header">Pioneer book</h5>
-                <div class="card-body">
-                  <p class="card-text">Description of date idea.</p>
-                </div>
-            </div>
-            <div class="card" style="background-color: white;">
-                <h5 class="card-header">Ice Skating</h5>
-                <div class="card-body">
-                  <p class="card-text">Description of date idea.</p>
-                </div>
-            </div>
-            <div id="test" class="card" style="background-color: white;">
-                <h5 id = "testHeader" class="card-header">BYU Museum of Art (Moa)</h5>
-                <div class="card-body">
-                  <p id = "Testp" class="card-text">Description of date idea.</p>
-                </div>
-            </div>
-        </main>*/
-
-
-            /*<div class="card" style="background-color: white;">
-                <h5 class="card-header">Hike the Y!</h5>
-                <div class="card-body">
-                  <p class="card-text">Description of date idea.</p>
-                </div>
-                <div class="container">
-                    <div class="like-button">
-                        <a class="btn btn-primary" onclick="topDates.increaseLikes()" href="#" role="button" style="background-color: #F76C6C;">Like this idea!</a>
-                    </div>
-                    <div class="like-button">
-                        <p id="likes">Likes: </p>
-                    </div>
-                    <div class="like-button">
-                        <p id="numLikes">0</p>
-                    </div>
-                </div>
-            </div>*/

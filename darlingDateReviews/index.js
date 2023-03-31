@@ -90,8 +90,15 @@ secureApiRouter.get('/dateIdeas', async (req, res) => {
 });
 
 // SubmitDateIdeas
-secureApiRouter.post('/dateIdeas', async (req, res) => {
+secureApiRouter.post('/dateIdea', async (req, res) => {
   await DB.addDateIdea(req.body);
+  const ideas = await DB.getDateIdeas();
+  res.send(ideas);
+});
+
+// UpdateNumberofLikes
+secureApiRouter.post('/likes', async (req, res) => {
+  await DB.updateLikes(req.body);
   const ideas = await DB.getDateIdeas();
   res.send(ideas);
 });

@@ -1,8 +1,4 @@
-// create the get player name
-// create an element that says something like "logged in as.... "
 
-//const playerNameEl = document.querySelector('.player-name');
-//playerNameEl.textContent = this.getPlayerName();
 
 class CreateReview {
     constructor() {
@@ -21,7 +17,31 @@ class CreateReview {
 
         const dateIdea = dateIdeaElement.value;
         const dateInfo = dateInfoElement.value;
+        const userName = this.getPlayerName();
+        const newIdea = { user: userName, idea: dateIdea, info: dateInfo, likes: 0};
+        this.saveReview(newIdea);
 
+        // set the values to blank 
+        dateIdeaElement.value = "";
+        dateInfoElement.value = "";
+
+    }
+
+    async saveReview(newIdea) {
+        try {
+          const response = await fetch('/api/dateIdea', {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify(newIdea),
+        });
+    
+        } catch {
+          // If there was an error then just track scores locally
+          this.updateDateIdeasLocal(newIdea);
+        }
+    }
+
+    updateDateIdeasLocal(newIdea) {
         let dateObject = [];
         const dateText = localStorage.getItem('dates');
         
@@ -29,20 +49,11 @@ class CreateReview {
             dateObject = JSON.parse(dateText);
         }
 
-        const newIdea = { idea: dateIdea, info: dateInfo };
         dateObject.push(newIdea);
         console.log(dateObject);
 
         localStorage.setItem('dates', JSON.stringify(dateObject));
-
-        // set the value to blank 
-        dateIdeaElement.value = "";
-        dateInfoElement.value = "";
-
-        //localStorage.setItem("dateIdea", dateIdeaElement.value);
-        //localStorage.setItem("dateInfo", dateInfoElement.value);
-        //window.location.href = "topDates.html";
-    }
+      }
 
 
 }
