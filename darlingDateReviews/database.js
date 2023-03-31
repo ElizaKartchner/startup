@@ -48,9 +48,14 @@ function getDateIdeas() {
 }
 
 function updateLikes(newIdea) {
-  dateIdeasCollection.deleteOne(newIdea);
+  updateIdea = JSON.parse(JSON.stringify(newIdea));
+  dateIdeasCollection.deleteOne(updateIdea);
   newIdea['likes'] = newIdea.likes + 1;
   dateIdeasCollection.insertOne(newIdea);
+  //updateIdea = JSON.parse(JSON.stringify(newIdea));
+  //updateIdea['likes'] = updateIdea.likes + 1;
+  //let newValues = { $set: updateIdea };
+  //dateIdeasCollection.updateOne(newIdea, newValues);
 }
 
 module.exports = {
