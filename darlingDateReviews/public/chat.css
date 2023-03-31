@@ -1,0 +1,17 @@
+#chat-text {
+    padding: 1em 0;
+  }
+  div .friend {
+    color: #24305E;
+    margin-left: 0.5em;
+  }
+  div .me {
+    color: #F76C6C;
+  }
+  div .system {
+    color: #24305E;
+  }
+  .name {
+    padding: 1em 0;
+  }
+  
