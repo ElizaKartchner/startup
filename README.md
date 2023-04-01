@@ -1845,3 +1845,6 @@ A component's properties and state are used by the React framework to determine 
 Making the UI react to changes in user input or data, is one of the architectural foundations of React. React enables reactivity with three major pieces of a React component: `props`, `state`, and `render`.
 
 When a component's JSX is rendered, React parses the JSX creates a list of any references to the component's state or prop objects. React then monitors those objects and if it detects that they have changed it will call the component's `render` function so that the impact of the change is visualized.
+	  
+# React Tic-Tac-Toe
+To “remember” things, components use state.	  
