@@ -1846,5 +1846,10 @@ Making the UI react to changes in user input or data, is one of the architectura
 
 When a component's JSX is rendered, React parses the JSX creates a list of any references to the component's state or prop objects. React then monitors those objects and if it detects that they have changed it will call the component's `render` function so that the impact of the change is visualized.
 	  
-# React Tic-Tac-Toe
+### React Tic-Tac-Toe
 To “remember” things, components use state.	  
+	  
+## Hooks 
+React hooks allow React function style components to be able to do everything that a class style component can do and more. Additionally, as new features are added to React they are including them as hooks. This makes function style components the preferred way of doing things in React. You have already see one use of hooks to declare and update state in a function component with the `useState` hook. The `useEffect` hook allows you to represent lifecycle events.  
+	  
+Note that hooks can only be used in function style components and must be called at the top scope of the function. That means a hook cannot be called inside of a loop or conditional. This restriction ensures that hooks are always called in the same order when a component is rendered.
