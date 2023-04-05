@@ -1853,3 +1853,27 @@ To “remember” things, components use state.
 React hooks allow React function style components to be able to do everything that a class style component can do and more. Additionally, as new features are added to React they are including them as hooks. This makes function style components the preferred way of doing things in React. You have already see one use of hooks to declare and update state in a function component with the `useState` hook. The `useEffect` hook allows you to represent lifecycle events.  
 	  
 Note that hooks can only be used in function style components and must be called at the top scope of the function. That means a hook cannot be called inside of a loop or conditional. This restriction ensures that hooks are always called in the same order when a component is rendered.
+
+### Toolchains
+This is also known as a content delivery pipeline. The toolchain that we use for our React project consists of GitHub as the code repository, Babel for transpiling, WebPack for polyfill, bundling, and minifying, and finally a simple bash script (deployReact.sh) for deployment.
+
+web application chain include:
+
+- **Code repository** - Stores code in a shared, versioned, location.
+- **Linter** - Removes, or warns, of non-idiomatic code usage.
+- **Prettier** - Formats code according to a shared standard.
+- **Transpiler** - Compiles code into a different format. For example, from JSX to JavaScript.
+- **Polyfill** - Generates backward compatible code for supporting old browser versions that do not support the latest standards.
+- **Bundler** - Packages code into bundles for delivery to the browser. This enables compatibility (for example with ES6 module support), or performance (with lazy loading).
+- **Minifier** - Removes whitespace and renames variables in order to make code smaller and more efficient to deploy.
+- **Testing** - Automated tests at multiple levels to ensure correctness.
+- **Deployment** - Automated packaging and delivery of code from the development environment to the production environment.
+
+### React CLI 
+CLI = Command Line Interface
+We will use CLI to initially set up a React based project. The `create-react-app` will create and configure a template React application that you can use as a starting place for your application. It is an NPM package that works as a console program. 
+
+NPX will temporarily download the desired package from NPM and then execute it using Node. Basically, NPX is just a short cut for NPM install and NPM start. It also has the advantage of not actually persistently installing the package and so it doesn't leave any clutter behind in your development environment.
+
+
+
