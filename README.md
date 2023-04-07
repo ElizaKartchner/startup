@@ -1875,5 +1875,9 @@ We will use CLI to initially set up a React based project. The `create-react-app
 
 NPX will temporarily download the desired package from NPM and then execute it using Node. Basically, NPX is just a short cut for NPM install and NPM start. It also has the advantage of not actually persistently installing the package and so it doesn't leave any clutter behind in your development environment.
 
+### Router 
+With a single page application the browser only loads one HTML page and then JavaScript is used to manipulate the DOM and give it the appearance of multiple pages. The router defines the routes a user can take through the application, and automatically manipulates the DOM to display the appropriate framework components.
+
+React does not have a standard router package, and there are many that you can choose from. We will use react-router-dom Version 6. The simplified routing functionality of React-router-dom derives from the project react-router for its core functionality. Do not confuse the two, or versions of react-router-dom before version 6, when reading tutorials and documentation.
 
 
