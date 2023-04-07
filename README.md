@@ -1885,3 +1885,5 @@ The introduction of React converts our application from a multi-page application
 	  
 The deployment script for this project is different than pervious deployment scripts since it includes the bundling of your React application.
 Remember to commit as soon as you have something working. 
+	  
+The biggest thing I learn is that I need to start the backend of my application when running it in my production environment. To do this click on the index.js file in the service file. Then press `F5` to start it in VS code in debug mode. Then do `npm start` in the root of the files. This will allow you to run the app in your production environment. 
