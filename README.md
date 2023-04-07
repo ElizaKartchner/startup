@@ -1880,4 +1880,8 @@ With a single page application the browser only loads one HTML page and then Jav
 
 React does not have a standard router package, and there are many that you can choose from. We will use react-router-dom Version 6. The simplified routing functionality of React-router-dom derives from the project react-router for its core functionality. Do not confuse the two, or versions of react-router-dom before version 6, when reading tutorials and documentation.
 
-
+# Simon React 
+The introduction of React converts our application from a multi-page application to a single page application. In a single page application, the browser only loads a single HTML file (index.html), and then we use JavaScript to interactively change the rendered content and components. This is a significant architectural shift to the application and will require you to reorganize your code to fit the single page, component driven, model.
+	  
+The deployment script for this project is different than pervious deployment scripts since it includes the bundling of your React application.
+Remember to commit as soon as you have something working. 
