@@ -2084,3 +2084,57 @@ You can not trust anything except the domain name.
 
 ### Security Practice 
 What are some good ways internalize how security exploits work? Practice! Two great practice applications are Gruyere and Juice Shop. 
+	  
+## TypeScript 
+TypeScript adds static type checking to JavaScript. This provides type checking while you are writing the code to prevent mistakes like using a string when a number is expected. With TypeScript enabled, VS Code will analyze the code and give you an error about the invalid type conversion. 
+	  
+Other things you can do with TypeScript 
+- Define the types of object properties
+- Specify the type of a React function style component's properties with an inline object definition
+- TypeScript introduced the use of the `interface` keyword to define a collection of parameters and types that an object must contain in order to satisfy the interface type.
+- Warns you of potential uses of an uninitialized variable
+- UNIONS: the ability to define the possible values for a new type
+	  
+## Performance Monitoring 
+What can happen in a single second? 
+- 11% fewer page views 
+- 16% decrease in customer satisfaction
+- 7% loss on conversions 
+	  
+The main things you want to monitor include:
+
+1. Browser application latency
+2. Network latency
+3. Service endpoint latency
+	  
+For the context of this discussion, latency is defined as the delay that your user experiences before a request is satisfied.
+	  
+### Browser Application Latency 
+Browser application latency is impacted by the speed of the user's device, the amount of data that needs to be processed, and the time complexity of the processing algorithm.
+	  
+### Network Latency 
+Network latency is impacted by the amount of data that you send, the amount of data a user can receive per second (this is called bandwidth), and the distance the data has to travel.	  
+	  
+You can mitigate the impact of global latency by hosting your application files in data centers that are close to the users you are trying to serve.
+	  
+### Service endpoint latency 
+Service endpoint latency is impacted by the number of request that are made and the amount of time that it takes to process each request. Ideally you want to keep the endpoint latency to less than 10 milliseconds (ms). 
+	  
+### How to fix performance problems
+- optimize for real usage (cache, bandwidth, cpu, storage) - test on slower machines
+- optimize based on data
+- prioritized bottlenecks (What appends everytime) 
+- look at download size
+- compress, reduce, minify
+- lazy load
+- use psycology - put up some dancing gerbils
+	  
+### Performance Tools - Chrome network tab 
+- You can see the network requests made by your application and the time necessary for each request, by using the browser's debugging tools.
+- The network tools in the Chrome debugger also allows you to simulate low bandwidth connections by throttling your network.
+- You can also use the Chrome debugging Lighthouse tool to run an analysis of your application. This will give you an average performance rating based upon the initial load time, longest content paint, and time before the user can interact with the page.
+	  
+### Performance Tools - Global Speed tests
+- test your application from different locations around the world.   
+- Can use Pingdom.com
+- Tool provided by DotComTools allows you to run tests from multiple locations at once.
