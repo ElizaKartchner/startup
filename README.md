@@ -1887,3 +1887,200 @@ The deployment script for this project is different than pervious deployment scr
 Remember to commit as soon as you have something working. 
 	  
 The biggest thing I learn is that I need to start the backend of my application when running it in my production environment. To do this click on the index.js file in the service file. Then press `F5` to start it in VS code in debug mode. Then do `npm start` in the root of the files. This will allow you to run the app in your production environment. 
+
+## Security 
+Being aware and preventing harm needs to be in the forefront of you mind whenever you create or use a web application. 
+
+You can see bad actors at work on your very own server by using `ssh` to open a console to your server and reviewing the authorization log. The authorization log captures all of the attempts to create a session on your server.
+
+`sudo less +G /var/log/auth.log`
+
+The last entry in the log will be from your connection to the server. However, you will see lots of other attempts with specific user names associated with common exploits. These all should be failing to connect, but if your server is not configured properly then an unauthorized access is possible. The sample of attempts below show the IP addresses of the attacker, as well as the user name that they used. Using the `whois` utility we can see that these attacks are originating from servers at DLive.kr in Korea, and DigitalOcean.com in the USA.
+
+Even if you don't think your application is valuable enough to require security, you need to consider that you might be creating a security problem for your users on other systems. For example, think about a simple game application where a user is required to provides a username and password in order to play the game. If the application's data is then compromised, then an attacker could use the password, used for the game application, to gain access to other websites where the user might have used the same password. For example, their social networking sites, work account, or financial institution.
+
+## Security terminology
+
+Web application security, sometimes called AppSec, is a subset of cybersecurity that specifically focuses on preventing security vulnerabilities within end-user applications. Web application security involves securing the front end code running on the user's device and also the back end code running on the web server.
+
+Here is a list of common phrases used by the security community that you should be familiar with.
+
+- **Hacking** - The process of making a system do something it's not supposed to do.
+- **Exploit** - Code or input that takes advantage of a programming or configuration flaw.
+- **Attack Vector** - The method that a hacker employs to penetrate and exploit a system.
+- **Attack Surface** - The exposed parts of a system that an attacker can access. For example, open ports (22, 443, 80), service endpoints, or user accounts.
+- **Attack Payload** - The actual code, or data, that a hacker delivers to a system in order to exploit it.
+- **Input sanitization** - "Cleaning" any input of potentially malicious data.
+- **Black box testing** - Testing an application without knowledge of the internals of the application.
+- **White box testing** - Testing an application by **with** knowledge of the source code and internal infrastructure.
+- **Penetration Testing** - Attempting to gain access to, or exploit, a system in ways that are not anticipated by the developers.
+- **Mitigation** - The action taken to remove, or reduce, a threat.
+
+## Motivation for attackers
+
+The following lists some common motivations at drives a system attack.
+
+- **Disruption** - By overloading a system, encrypting essential data, or deleting critical infrastructure, an attacker can destroy normal business operations. This may be an attempt at extortion, or simply be an attempt to punish a business that that attacker does not agree with.
+- **Data exfiltration** - By privately extracting, or publicly exposing, a system's data, an attacker can embarrass the company, exploit insider information, sell the information to competitors, or leverage the information for additional attacks.
+- **Resource consumption** - By taking control of a company's computing resources an attacker can use it for other purposes such as mining cryptocurrency, gathering customer information, or attacking other systems.
+
+## Common hacking techniques
+
+There are a few common exploitation techniques that you should be aware of. These include the following.
+
+- **Injection**: When an application interacts with a database on the backend, a programmer will often take user input and concatenate it directly into a search query. This allows a hacker can use a specially crafted query to make the database reveal hidden information or even delete the database.
+
+- **Cross-Site Scripting (XSS)**: A category of attacks where an attacker can make malicious code execute on a different user's browser. If successful, an attacker can turn a website that a user trusts, into one that can steal passwords and hijack a user's account.
+
+- **Denial of Service**: This includes any attack where the main goal is to render any service inaccessible. This can be done by deleting a database using an SQL injection, by sending unexpected data to a service endpoint that causes the program to crash, or by simply making more requests than a server can handle.
+
+- **Credential Stuffing**: People have a tendency to reuse passwords or variations of passwords on different websites. If a hacker has a user's credentials from a previous website attack, then there is a good chance that they can successfully use those credentials on a different website. A hacker can also try to brute force attack a system by trying every possible combination of password.
+
+- **Social engineering** - Appealing to a human's desire to help, in order to gain unauthorized access or information.
+
+
+## What can I do about it?
+
+Taking the time to learn the techniques a hacker uses to attack a system is the first step in preventing them from exploiting your systems. From there, develop a security mindset, where you always assume any attack surface will be used against you. Make security a consistent part of your application design and feature discussions. Here is a list of common security practices you should include in your applications.
+
+- **Sanitize input data** - Always assume that any data you receive from outside your system will be used to exploit your system. Consider if the input data can be turned into an executable expression, or can overload computing, bandwidth, or storage resources.
+- **Logging** - It is not possible to think of every way that your system can be exploited, but you can create an immutable log of requests that will expose when a system is being exploited. You can then trigger alerts, and periodically review the logs for unexpected activity.
+- **Traps** - Create what appears to be valuable information and then trigger alarms when the data is accessed.
+- **Educate** - Teach yourself, your users, and everyone you work with, to be security minded. Anyone who has access to your system should understand how to prevent physical, social, and software attacks.
+- **Reduce attack surfaces** - Do not open access anymore than is necessary to properly provide your application. This includes what network ports are open, what account privileges are allowed, where you can access the system from, and what endpoints are available.
+- **Layered security** - Do not assume that one safeguard is enough. Create multiple layers of security that each take different approaches. For example, secure your physical environment, secure your network, secure your server, secure your public network traffic, secure your private network traffic, encrypt your storage, separate your production systems from your development systems, put your payment information in a separate environment from your application environment. Do not allow data from one layer to move to other layers. For example, do not allow an employee to take data out of the production system.
+- **Least required access policy** - Do not give any one user all the credentials necessary to control the entire system. Only give a user what access they need to do the work they are required to do.
+- **Safeguard credentials** - Do not store credentials in accessible locations such as a public GitHub repository or a sticky note taped to a monitor. Automatically rotate credentials in order to limit the impact of an exposure. Only award credentials that are necessary to do a specific task.
+- **Public review** - Do not rely on obscurity to keep your system safe. Assume instead that an attacker knows everything about your system and then make it difficult for anyone to exploit the system. If you can attack your system, then a hacker will be able to also. By soliciting public review and the work of external penetration testers, you will be able to discover and remove potential exploits.
+
+# OWASP Top Ten
+The Open Web Application Security Project (OWASP) is a non-profit research entity that manages the TOP TEN list of the most important web application security rishs. Understanding, and periodically reviewing, this list will help to keep your web applications secure. 
+
+### Broken Access Control (Number one)
+- Happens when the application doesn't properly enfore permissions on users. 
+- Different roles for users. 
+- URL bypass control (/payment/:accountID)
+- Resourse ID allows access (../../../etc/password)
+
+Prevent? 
+- Strict access enforcement at the service level
+- Clearly defined roles and elevation paths
+- restrict content directory path 
+
+### Crypotographic Failures 
+- Happens when sensitive data is accessible either without encryption, with weak encryption protocols, or when cryptographic protections are ignored.
+- transmitting data as clear text
+- encrypting only at rest
+- weak cryptograph (SHA-1 and MD5 are easy to crack with modern tools) 
+- misused cryptography (no salt, wrong params) 
+
+Prevent? 
+- Use strong encryption for all data. This includes external, internal, in transit, and at rest data.
+- Updating encryption algorithms as older algorithms become compromised.
+- Properly using cryptographic safeguards.
+- don't store sensitive data unnecessarily
+- salt passwords
+
+### Injection 
+- User supplied data that is not sanitized
+- Ex: attacker supplies a SQL database command in the password input
+- user supplied data is programmatically executed 
+
+Prevent? 
+- sanitize all inputs
+- don't create formatted string queries 
+- use database prepared statements
+- use restriction limits on quries 
+- limit output
+
+### Insecure Design 
+- architectural flaws that are unique for individual systems, rather than implementation errors
+- unlimited free trial accounts
+- not aware of best practices 
+- customer data not segmented 
+- sinlge layer defense 
+
+Prevent? 
+- education
+- best practice review
+- evidence based password policies
+- integration testing 
+
+### Security Misconfiguration 
+- exploit the configuration of an application
+- using default configurations
+- unnecessary features installed 
+- system not hardened (reduce attacker surface area) 
+
+Prevent? 
+- Configuration reviews
+- Setting defaults to disable all access
+- Automated configuration audits
+- Requiring multiple layers of access for remote configuration
+
+### Vulnerable and Outdated Components
+- unnecessary/unused packages imported 
+- untrusted/unverified sources 
+- out of date software
+- not tracking vulnerability bulletins
+
+Prevent? 
+- audit versions
+- review security bulletins
+- Regularly updating software
+- Required components to be up to date
+- Replacing unsupported software
+
+### Identification and Authentication Failures
+- any situation where a user's identity can be impersonated or assumed by an attacker
+- credential stuffing (compromised list) 
+- brute force attakcs (guess a password) 
+- premitting weak passwords 
+- weak credential recovery 
+- credentials in URL
+- not expiring auth tokens
+- custumer support should NOT know your password bc that means that database is not incrypted.
+
+Prevent? 
+- Rate limiting requests
+- Properly managing credentials
+- Multifactor authentication
+- Authentication recovery
+
+### Software and Data Integrity Failure
+- attacks that allow external software, processes, or data to compromise your application
+- Using packages without conducting a security audit, gives them an unknown amount of control over your application.
+- Ex: using an NPM package that is controlled by an attacker
+
+Prevent? 
+- Only using trusted package repositories
+- Using your own private vetted repository
+- Audit all updates to third party packages and data sources
+
+### Security Logging and Monitoring Failures 
+- One of the first things an attacker will do after penetrating your application is delete or alter any logs that might reveal the attacker's presence. A secure system will store logs that are accessible, immutable, and contain adequate information to detect an intrusion, and conduct post-mortem analysis.
+- An attacker might also try to create a smoke screen in the monitoring system in order to hide a true attack. This might consist of a barrage of periodic ineffective attacks that hide the insertion of a slightly different effective one.
+- Ex: not logging critical requests
+- Ex: not monitoring system performance
+
+Prevent? 
+- Real time log processing
+- Automated alerts for metric threshold violations
+- Periodic log reviews
+- Visual dashboards for key indicators
+
+### Server Side Request Forgery (SSRF) 
+- causes the application service to make unintended internal requests, that utilized the service's elevated privileges, in order to expose internal data or services
+- Ex: if your service exposed an endpoint that let a user retrieve an external profile image based upon a supplied URL, an attacker could change the URL to point to a location that is normally only available to the service internally.
+
+Prevent?
+- Sanitizing returned data
+- Not returning data
+- Whitelisting accessible domains
+- Rejecting HTTP redirects
+
+## The Line of Death
+You can not trust anything except the domain name. 
+
+### Security Practice 
+What are some good ways internalize how security exploits work? Practice! Two great practice applications are Gruyere and Juice Shop. 
