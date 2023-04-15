@@ -2138,3 +2138,53 @@ Service endpoint latency is impacted by the number of request that are made and 
 - test your application from different locations around the world.   
 - Can use Pingdom.com
 - Tool provided by DotComTools allows you to run tests from multiple locations at once.
+
+### Search Engine Optimization (SEO)
+While SEO has nothing to do with the functionality of your application, it has everything to do with its success. You can save millions of dollars in marketing if your application appears in the top search ranking for common user searches.
+
+There are several factors that are major contributors to your search rank. These include:
+
+1. Content
+1. Authoritative links
+1. Structure and organization
+1. Metadata
+1. Performance and usability
+
+### Content 
+Host interesting, current, easily accessible content. The key is to have lots of interesting content and that it is kept current. You want to make sure that you provide both textual and video content. Also make sure that the content is available without authentication or payment.
+
+### Authoritative links
+The more websites that point to your application the higher its search ranking will be. If you can get an influencer to link to your content, or get links from other authoritative applications you will see a significant bump in your ranking.
+
+You also want to be an authority to yourself. This includes links from other applications that you own, and internal application links. Making sure that you have multiple paths to key content from within your application will help the Google crawler find the content and value its authority.
+
+### Structure and organization
+You need to properly use HTML elements to correctly define and organize your application. Leveraging the semantic meaning of HTML will help the crawler navigate your content. Mkae sure your content is not hidden behind JavaScript interactions. Key HTML elements include the `title` and `heading` elements. The title and heading elements should contain text that clearly defines the value of your content, and include keywords that you want in the search index.
+
+### Metadata
+HTML defines several elements and attributes that search crawlers specifically target. This includes the `description`, `robots`, social media open graph (`og`), and image `alt` attributes.
+
+##### Sitemap 
+A sitemap is a textual file that you distribute with your application. It describes the major content pieces of your application and aids in search crawler navigation. If you have a small application then a sitemap is probably not necessary. If you have hundreds, or thousands, of content pages then you definitely want to build a sitemap and submit it to the Google Search Console.
+
+#### Robots.txt
+The `robots.txt` file tells the crawler what parts of your application is off limits. To include a robots.txt file for your application you simply create the file with the specific name robots.txt and serve it from the root of your domain.
+
+### Performance and usability 
+In addition to authority, Google wants to rank results by quality. That means it will check how performant your application is and how good the user experience (UX) is. This includes measurements such as the time it takes for the first byte to load, how long it takes to render the page, and how well your application works on mobile devices.
+
+## Device APIs (Application programming interfaces) 
+Every year browsers mature and increase the features that they provide. Sometimes these features are exposed as APIs (Application programming interfaces) that allow a web application to interact with the user through browser, operating system, or device features. For example, your application could take advantage of location services that tell you where your user is physically located, or read a user's contacts in order to allow them to share information with their peers. As these APIs become standard across all browsers they enable web applications to behave more and more like historical native device applications.
+
+## Prograssive web applications 
+Native apps moved the software industry away from the idea of a universal application platform, to one where developers are forced to create completely different design, functionality, and code for each device. One for iPhone, one for Android, one for each game console, one for each TV vendor, one for the desktop, and so forth. While this is great for the employability of software engineers, it is terrible for software companies and users in general.
+
+While PWA builds on the standard core of HTML, CSS, and JavaScript, along with the delivery of content and software updates over HTTP, it takes web applications to the next level, by providing the following benefits.
+1. Works offline
+1. Fast mobile installation to home screen 
+1. No app store tax
+1. Instant updates
+1. Performace
+1. Same code base for all devices
+1. Better SEO score
+
