@@ -2188,3 +2188,94 @@ While PWA builds on the standard core of HTML, CSS, and JavaScript, along with t
 1. Same code base for all devices
 1. Better SEO score
 
+# Notes from Final Review 
+Cookies allow: A server to store data on the client 
+
+Which is NOT a standard HTTP header? Language
+What are some possible: host, content-type, cookie
+
+True = You can use fetch in the front-end and the back-end code. 
+
+What is NOT the purpose of JSX? 
+To combine CSS, HTML, and JavaScript (CSS is not part of it) 
+
+What are the purposes of JSX? 
+To inject your HTML into your javaScript
+To componentize your HTML 
+To allow for composability of your HTML 
+
+Which Express middleware will match this fetch request? 
+Const r = await fetch (‘/fav/ringo’, {
+	Method: ‘Delete’
+});
+has the method delete 
+Look at the path (has the fav) 
+Answer: app.delete(/fav\/(.*)/, () => {})
+
+Which of the following is NOT true about a Linux daemon? 
+Cannot fork other processes 
+What is true? 
+Starts when the computer is rebooted 
+Executes independent of the user 
+PM2 is an example of a daemon
+
+Why is hashing stored passwords important? 
+It improves security by making the passwords unreadable 
+
+What component with the URL ‘/burger’ render
+Key is the path 
+
+What value does WebSocket add to HTTP? 
+It is peer to peer instead of client to server
+
+What will component A initially display?  (5 questions on the final) 
+Look at the code on kahoot
+Trying to figure out what will be rendered
+D = taco 
+First rendered so we don’t care about the onclick
+X and o are rendered at first 
+X = burger to start with 
+O = c component  = fish 
+If v is true … which it is false so it does not happen 
+The useeffect = called the first time it is rendered. It is going to updated x to be a taco
+So we get tacofish 
+[v] → when ever the v is called, the useeffect line is also called
+[] → only happens on start 
+No second parameter means it will always be called whenever anything changes 
+
+For the request [GET] /fav/george what is logged? 
+Express middleware is read top to bottom 
+The use is global 
+next() → goes to the next one that matches 
+Because get, ignore anything that does not have get 
+Ignore the put so anything with ringo in it is out 
+
+Port 80 is reserved for? HTTP 
+Know the ports that are 
+
+Given the following code what will console.log print? 
+Answer: Client:Server:hello 
+
+What document matches this MongoDB query? 
+{ $or: [{name: /J.*/}, {score: {$lt:3}]}
+Does it make this OR that 
+If it was AND then both would have to match
+By default it is case sensitive 
+Looking for less than 3 
+Basically saying does this make a name that starts with J or a score less than 3
+{name:”Walk
+
+HTTP status codes in the 300 range are for? 
+Content redirects or caching 
+Client errors = 400
+Server errors = 500
+Success = 200
+Info = 100
+
+What does the command “NPM install ws” NOT do? 
+Adds template code for websockets to your JavaScript
+Does it do?
+Adds a dependency to your package.json file
+Adds the websocket source code to the node_modules directory 
+Locks the version of your websocket package for your application 
+
